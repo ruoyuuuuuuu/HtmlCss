@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--header start-->
+    <header id="HOME">
+        <nav>
+            <div class="myNav">
+                <div class="navContent">
+                    <h1><a href="demo.html">农林小果子</a></h1>
+                    <ul>
+                        <li><a href="#HOME">Home</a></li>
+                        <li><a href="#aboutMe">关于我</a></li>
+                        <li><a href="#aboutSchool">学校经历</a></li>
+                        <li><a href="#aboutElse">ELse</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header><!--header end-->
+
+    <!--content start-->
+    <div class="content">
+        <div class="myBG">
+            <div class="bg-left">
+                <div class="head-demo">
+                    <img src="./images/IMG_0407.JPG" alt="">
+                </div>
+            </div>
+            <div class="title">
+                <p>"既是出于恩典，就不在乎行为；</p>
+                <br />
+                <p>不然，恩典就不是恩典了."</p>
+            </div>
+        </div>
+        <section id="aboutMe" class="bg-white">
+            <div class="aboutMe">
+                <h1>ABOUT ME</h1>
+                <div class="meOne">
+                    <p>姓名：金敬贴</p>
+                    <br />
+                    <p>性别：男</p>
+                    <br />
+                    <p>出生日期：1995-05-11</p>
+                    <br />
+                    <p>毕业院校：浙江农林大学（本科）</p>
+                    <br />
+                    <p>联系方式：18806509327</p>
+                    <br />
+                    <p>现居地：浙江省杭州市</p>
+                    <br />
+                </div>
+                <div class="meTwo">
+                    <h2>"Homo Deus"</h2>
+                    <pre>是虚构的，就不重要吗？
+在这个人文主义的时代做个有道德的人，就千万别伤害别人的感情。
+你对基因工程、脑神经科学、计算机算法和人工智能一无所知，居然
+还想要指导未来人的生活，你不是胡扯吗？
+                    </pre>
+                </div>
+            </div>
+        </section>
+        <section id="aboutSchool" class="bg-grey">
+            <div class="aboutSchool">
+                <h1>在校情况</h1>
+                <div class="schoolOne">
+                    <h2>校内荣誉</h2>
+                    <p>分别于2015、2016年荣获两次院级三等奖学金</p>
+                    <h2>校内职务</h2>
+                    <p>大一期间参与了学生社团联合会组织中的项目管理部，主要负责对学校内注册的所有社团进行日常的管理，比如社团活动的开展情况、场地的租借等。</p>
+                    <p>之后，在班级中一直担任学习委员，负责班级学习情况的管理。</p>
+                </div>
+            </div>
+        </section>
+        <section id="aboutElse" class="bg-white">
+            <div class="about-x">
+                <h1>关于《未来简史》的摘记</h1>
+                <div class="schoolOne">
+                    <h2>读书笔记</h2>
+                    <pre>郝利拉介绍，最近有人做了一项大规模的研究，判断各个行业的职位在未来被人工智能取代的概率。其中一个有意思的结果是考古学家
+这个职业是比较安全的，在近期被取代的可能性很低。
+但这并不是因为考古学太难了——考古学的确很难，需要高超的模式识别技巧。更重要的原因是考古学是个没什么利润的行业，人工智能
+公司不值得为这个行业专门研发一套系统......</pre>
+                    <h2>计算机算法</h2>
+                    <ul>
+                        <li>第一步，算法相当于是我们的身边的先知（oracle），也就是一个算命的，你有什么问题问它一下，但是决策权在你手里。</li>
+                        <li>第二步，算法相当于是我们的代理人（agent），你告诉它一个大的方向和原则，它去执行，至于执行过程中一些小的决策，它自己就说了算了。</li>
+                        <li>第三步，算法就成了我们的君主（sovereign），你索性就什么都听它的了。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div><!--content end-->
+
+    <!--footer start-->
+    <footer>
+        <div class="footer-default">
+            <div class="footer-one">
+                <p>联系方式：231805924@qq.com</p>
+                <br />
+                <p>© 农林小果子 1995</p>
+            </div>
+            <div class="footer-two">
+                <br />              
+                <p>本网页仅用于自学，如果有任何侵权行为请告知作者.</p>
+            </div>
+        </div>
+    </footer><!--footer end-->
+
+    <!--JavaScript here-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 10000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
