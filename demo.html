@@ -84,20 +84,15 @@
             </div>
         </section>
         <section id="aboutElse" class="bg-white">
-            <div class="about-x">
-                <h1>关于《未来简史》的摘记</h1>
-                <div class="schoolOne">
-                    <h2>读书笔记</h2>
-                    <pre>郝利拉介绍，最近有人做了一项大规模的研究，判断各个行业的职位在未来被人工智能取代的概率。其中一个有意思的结果是考古学家
-这个职业是比较安全的，在近期被取代的可能性很低。
-但这并不是因为考古学太难了——考古学的确很难，需要高超的模式识别技巧。更重要的原因是考古学是个没什么利润的行业，人工智能
-公司不值得为这个行业专门研发一套系统......</pre>
-                    <h2>计算机算法</h2>
-                    <ul>
-                        <li>第一步，算法相当于是我们的身边的先知（oracle），也就是一个算命的，你有什么问题问它一下，但是决策权在你手里。</li>
-                        <li>第二步，算法相当于是我们的代理人（agent），你告诉它一个大的方向和原则，它去执行，至于执行过程中一些小的决策，它自己就说了算了。</li>
-                        <li>第三步，算法就成了我们的君主（sovereign），你索性就什么都听它的了。</li>
-                    </ul>
+            <div class="about-ajax">
+                <h1>AJAX的实现</h1>
+                <div class="ajax-one">
+                    <div class="text-for-ajax">
+                        <p><span id="ajaxText">Let AJAX change this text.</span></p>
+                        <br />
+                        <p>这个方法暂时搁置......</p>
+                    </div>
+                    <button type="button" class="my-btn ajax-btn" onclick="loadXMLDoc()">通过AJAX改变内容</button>
                 </div>
             </div>
         </section>
@@ -155,7 +150,27 @@
     <!--JavaScript here-->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script>
-        $(document).ready(function() {
+        // AJAX实现
+        function loadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {
+                //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("ajaxText").innerHTML = xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "/code/WebCode/H5C3/ajax/test.txt", true);
+            xmlhttp.send();
+        }
+
+        $(document).ready(function () {
             $('a[href*=\\#]:not([href=\\#])').click(function () {
                 if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                     var target = $(this.hash);
@@ -169,7 +184,6 @@
                 }
             });
         });
-
     </script>
 </body>
 </html>
