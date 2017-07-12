@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <title>toDoList</title>
+</head>
+<style type='text/css'>
+    body{
+        text-align: center;
+        background-color: #888888;
+    }
+
+    #toDoList{
+        width: 40%;
+        min-width: 480px;
+        height: 300px;
+        margin: 110px auto 0px auto;
+        border: 2px solid #c3c3c3;
+        border-radius: 13px;
+        box-shadow: 7px 7px 10px #636363;
+        background-color: #fff;
+    }
+
+    #toDoList input[type="text"]{
+        width: 50%;
+        margin-top: 100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 7px;
+        letter-spacing: 1px;
+        border: 3px solid #c3c3c3;
+        border-radius: 6px;
+        line-height: 2.5em;
+        color: #636363;
+        outline: none;
+    }
+
+    #toDoList ul{
+        width: 50%;
+        margin-top: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #636363;
+    }
+
+    #toDoList ul li{
+        letter-spacing: 1px;
+        text-align: left;
+        padding: 3px 0 3px 10px;
+        line-height: 2em;
+        color: #636363;
+    }
+
+    #toDoList ul li:hover{
+        background-color: #f3f3f3;
+    }
+
+    .clr{
+        clear: both;
+    }
+
+    input::-webkit-input-placeholder{
+        color: #636363;
+        opacity: 0.6;
+    }
+
+    input:-ms-input-placeholder{
+        color: #636363;
+        opacity: 0.6;
+    }
+
+    input:-moz-placeholder{
+        color: #636363;
+        opacity: 0.6;
+    }
+
+    input::-moz-placeholder{
+        color: #636363;
+        opacity: 0.6;
+    } 
+</style>
+<body>
+    <div id="toDoList">
+        <div>
+            <input id="content" type="text" placeholder="To-Do-List">
+        </div>
+        <ul id="history">
+        </ul>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        var count1 = 0,
+            count2 = 4,
+            size = 0;
+        var cArr = new Array();
+        $('#content').bind('keypress', function (event) {
+            if (event.keyCode == "13") {
+                if (size < 5) {
+                    cArr[size] = $('#content').val();
+                    $("#history").prepend($("<li></li>").text(cArr[size]));
+                    size++;
+                    $('#content').val("");
+                }
+                else {
+                    if (count2 >= 0) {
+                        cArr[size] = $('#content').val();
+                        $('#history li:eq(' + count2 + ')').text(cArr[size]);    // eq 变量需要字符串连接
+                        size++;
+                        count2--;
+                        $('#content').val("");
+                    }
+                    else {
+                        count2 = 4;
+                        cArr[size] = $('#content').val();
+                        $('#history li:eq(' + count2 + ')').text(cArr[size]);    // eq 变量需要字符串连接
+                        size++;
+                        count2--;
+                        $('#content').val("");
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
